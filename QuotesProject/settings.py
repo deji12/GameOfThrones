@@ -27,6 +27,38 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+    "https://gameofthrones-production.up.railway.app/"
+    "https://gameofthrones-production.up.railway.app/admin/"
+    "https://gameofthrones-production.up.railway.app/admin"
+    "https://gameofthrones-production.up.railway.app"
+]
+
+CSRF_TRUSTED_ORIGINS = [
+     "http://127.0.0.1:8000",
+    "https://gameofthrones-production.up.railway.app/"
+    "https://gameofthrones-production.up.railway.app/admin/"
+    "https://gameofthrones-production.up.railway.app/admin"
+    "https://gameofthrones-production.up.railway.app"
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+
 
 # Application definition
 
@@ -39,9 +71,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'QuoteApp',
     'import_export',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
