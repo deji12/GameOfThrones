@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from .models import Quote, Actor
 import random
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
 def HomePage(request):
 
     all_actors = Actor.objects.all()
