@@ -48,6 +48,7 @@ def get_quote_by_actor(request):
         get_actor = Actor.objects.get(quoter=actor)
 
         get_quotes = Quote.objects.filter(actor=get_actor)
+
         select_randomn_quote = random.choice(get_quotes)
 
         serializer = QuoteSerializer(select_randomn_quote, many=False)
