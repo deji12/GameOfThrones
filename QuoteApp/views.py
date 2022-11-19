@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Quote, Actor
 import random
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
 
 @csrf_exempt
 def HomePage(request):
@@ -18,6 +19,10 @@ def HomePage(request):
 
     if request.method == 'POST': # if user searches for quote by actor
         name = request.POST.get("name") # get actor selected in frontend
+
+        if not name:
+            messages.error(request, "Select an actor!") # checking if user selected any actor
+            return redirect('home')
 
         get_actor = Actor.objects.get(quoter=name) # query for actor object
 

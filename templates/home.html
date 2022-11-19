@@ -11,6 +11,11 @@
         <div class="container">
             <form action="" method="POST">
                 <div class="parent">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p style="color: #BC986A;"><b>{{message}}</b></p>
+                        {% endfor %}
+                    {% endif %}
                         {% csrf_token %}
                         <div class="select">
                             <select name="name" id="format">
