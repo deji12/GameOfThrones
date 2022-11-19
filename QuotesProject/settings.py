@@ -28,12 +28,12 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1:8000",
-    "https://gameofthrones-production.up.railway.app/"
-    "https://gameofthrones-production.up.railway.app/admin/"
-    "https://gameofthrones-production.up.railway.app/admin",
-    "https://gameofthrones-production.up.railway.app",
-    "https://gameofthrones-production.up.railway.app/admin/login/?next=/admin/"
+    # "http://127.0.0.1:8000",
+    # "https://gameofthrones-production.up.railway.app/"
+    # "https://gameofthrones-production.up.railway.app/admin/"
+    # "https://gameofthrones-production.up.railway.app/admin",
+    # "https://gameofthrones-production.up.railway.app",
+    # "https://gameofthrones-production.up.railway.app/admin/login/?next=/admin/"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'QuoteApp',
     'import_export',
     'corsheaders',
+    'QuotesApi',
 ]
 
 MIDDLEWARE = [
