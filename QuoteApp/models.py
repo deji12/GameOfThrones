@@ -14,10 +14,10 @@ class Quote(models.Model):
         return f"{self.actor} | {self.quote}"
 
 class IpLocation(models.Model):
-    ip = models.CharField(max_length=225)
-    city = models.CharField(max_length=225)
-    region = models.CharField(max_length=225)
-    country = models.CharField(max_length=225)
+    ip = models.CharField(max_length=225, null=True, blank=True)
+    city = models.CharField(max_length=225, null=True, blank=True)
+    region = models.CharField(max_length=225, null=True, blank=True)
+    country = models.CharField(max_length=225, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
