@@ -18,6 +18,7 @@ class IpLocation(models.Model):
     city = models.CharField(max_length=225)
     region = models.CharField(max_length=225)
     country = models.CharField(max_length=225)
+    date = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
         return f"{self.country} | {self.city}"
