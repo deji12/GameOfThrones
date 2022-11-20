@@ -12,3 +12,12 @@ class Quote(models.Model):
 
     def __str__(self):
         return f"{self.actor} | {self.quote}"
+
+class IpLocation(models.Model):
+    ip = models.CharField(max_length=225)
+    city = models.CharField(max_length=225)
+    region = models.CharField(max_length=225)
+    country = models.CharField(max_length=225)
+
+    def __str__(self):
+        return f"{self.country} | {self.city}"

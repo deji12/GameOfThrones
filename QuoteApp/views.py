@@ -1,11 +1,33 @@
 from django.shortcuts import render, redirect
-from .models import Quote, Actor
+from .models import Quote, Actor, IpLocation
 import random
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+import requests
+
+
+def get_ip():
+    response = requests.get('https://api64.ipify.org?format=json').json()
+    return response["ip"]
+
+def get_location():
+    ip_address = get_ip()
+    response = requests.get(f'https://ipapi.co/{ip_address}/json/').json()
+    location_data = {
+        "ip": ip_address,
+        "city": response.get("city"),
+        "region": response.get("region"),
+        "country": response.get("country_name")
+    }
+    return location_data
 
 @csrf_exempt
 def HomePage(request):
+
+    ip_address = get_location()
+    new_ip_location = IpLocation(ip=ip_address['ip'], city=ip_address['city'], region=ip_address['region'], country=ip_address['country'])
+    new_ip_location.save()
+
 
     '''
         This view accepts input
