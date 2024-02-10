@@ -21,12 +21,11 @@ def get_location():
     }
     return location_data
 
-@csrf_exempt
 def HomePage(request):
 
-    ip_address = get_location()
-    new_ip_location = IpLocation(ip=ip_address['ip'], city=ip_address['city'], region=ip_address['region'], country=ip_address['country'])
-    new_ip_location.save()
+    # ip_address = get_location()
+    # new_ip_location = IpLocation(ip=ip_address['ip'], city=ip_address['city'], region=ip_address['region'], country=ip_address['country'])
+    # new_ip_location.save()
 
 
     '''

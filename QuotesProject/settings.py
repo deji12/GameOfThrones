@@ -27,41 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [
-    # "http://127.0.0.1:8000",
-    # "https://gameofthrones-production.up.railway.app/"
-    # "https://gameofthrones-production.up.railway.app/admin/"
-    # "https://gameofthrones-production.up.railway.app/admin",
-    # "https://gameofthrones-production.up.railway.app",
-    # "https://gameofthrones-production.up.railway.app/admin/login/?next=/admin/"
-]
-
-CSRF_TRUSTED_ORIGINS = [
-     "http://127.0.0.1:8000",
-    "https://gameofthrones-production.up.railway.app/"
-    "https://gameofthrones-production.up.railway.app/admin/"
-    "https://gameofthrones-production.up.railway.app/admin",
-    "https://gameofthrones-production.up.railway.app",
-    "https://gameofthrones-production.up.railway.app/admin/login/?next=/admin/",
-]
-
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
-
-
-CORS_ALLOW_CREDENTIALS = True
-
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOW_CREDENTIALS = True
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,13 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'QuoteApp',
     'import_export',
-    'corsheaders',
     'QuotesApi',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -156,9 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'staticfiles'),
 ]
 
 
@@ -167,4 +130,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"

@@ -1,1 +1,0 @@
-web: gunicorn QuotesProject.wsgi --log-file -
